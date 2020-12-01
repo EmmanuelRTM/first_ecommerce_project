@@ -4,12 +4,11 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
 
-
 function Login(){
 
     let history = useHistory();
     const sendData = (data) =>{
-        axios.post("http://ca35951931f4.ngrok.io/login",data)
+        axios.post("https://ecomerce-master.herokuapp.com/api/v1/login",data)
             .then((response) =>{
                 console.log(response.data)
                 const { token } =response.data
@@ -48,9 +47,9 @@ function Login(){
                         <div className="form-group">
                             <label htmlFor="">Password</label>
                             <input type="password" name="password" 
-                             value={inputs.password}
-                             onChange={handleInputChange}
-                            className="form-control"/>
+                                value={inputs.password}
+                                onChange={handleInputChange}
+                                className="form-control"/>
                         </div>
                     </div>
                     <div className="col-md-10 text-center">

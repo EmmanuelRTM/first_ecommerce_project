@@ -8,8 +8,8 @@ function Navbar() {
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a className="navbar-brand" href="#">
-            Quotes
+        <a className="navbar-brand" href="/">
+            Super e-market
         </a>
         <button
             className="navbar-toggler"
@@ -22,17 +22,14 @@ function Navbar() {
         >
             <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
+        <div className="csollapse navbar-collapse" id="navbarNav">
+            {//console.log(user)
+            }
             {user ? (
             <ul className="navbar-nav">
                 <li className="nav-item active">
-                <Link className="nav-link" to="/profile">
-                    ¡Hola, {user.first_name}!
-                </Link>
-                </li>
-                <li className="nav-item active">
-                <Link className="nav-link" to="/quote">
-                    Mi Quote
+                <Link className="nav-link" to="/user">
+                    My account, {user.role} !
                 </Link>
                 </li>
                 <li className="nav-item">

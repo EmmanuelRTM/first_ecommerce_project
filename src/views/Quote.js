@@ -14,7 +14,7 @@ function Quote(){
                 Authorization: `JWT ${token}` 
             }
         }
-        axios.get("http://ca35951931f4.ngrok.io/quotes",config)
+        axios.get("http://e2a2392e7030.ngrok.io/quotes",config)
         .then((response) =>{
             setQuote(response.data)
         })

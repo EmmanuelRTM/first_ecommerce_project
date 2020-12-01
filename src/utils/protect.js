@@ -10,5 +10,5 @@ function HOC (Component){
     return WrappedComponent 
 
 }
-
+//HOC hace que cualquier componente al que se vaya usar si no tiene token, vuelve a HOME como tal
 export default HOC;

@@ -5,10 +5,10 @@ export default function(){
         const [header,payload,signature] = token.split('.')
         const base64 = payload.replace('-','+').replace('_','/');
         const payloadObject = JSON.parse(window.atob(base64));
-        return payloadObject
+        return payloadObject;
     }else{
         return null;
     }
 
-
+//payload hace obtener la informacion del objeto del token ya transformado obtenido tras inciar sesion
 }

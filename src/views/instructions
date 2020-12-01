@@ -1,0 +1,124 @@
+/*
+
+DEV.F e-Commerce API
+
+Auth
+
+POST /api/v1/signup 
+POST /api/v1/login 
+
+Items
+
+GET /api/v1/item 
+GET /api/v1/item/:idItem
+
+Users
+
+Es necesario autenticarse para poder consumirlos
+
+GET /api/v1/user 
+GET /api/v1/user/me 
+GET /api/v1/user/:idUser 
+PATCH /api/v1/user/:idUser 
+
+        {
+            "first_name": STRING,
+            "last_name": STRING,
+            "email": STRING,
+            "password": STRING,
+            "birth_date": DATE,
+            "gender": STRING posibles["F","M","X"]
+        }
+
+        //documentacion https://ecomerce-master.herokuapp.com/docs
+
+        categorias:
+[
+        "Books",
+        "Movies",
+        "Music",
+        "Games",
+        "Electronics",
+        "Computers",
+        "Home",
+        "Garden",
+        "Tools",
+        "Grocery",
+        "Health",
+        "Beauty",
+        "Toys",
+        "Kids",
+        "Baby",
+        "Clothing",
+        "Shoes",
+        "Jewelery",
+        "Sports",
+        "Outdoors",
+        "Automotive",
+        "Industrial"
+    ]
+
+    http://e2a2392e7030.ngrok.io
+
+
+PROYECTO REACT PRIMERA FASE: 
+A partir del siguiente backend:  `https://ecomerce-master.herokuapp.com/docs`
+
+* El diseño es libre y esta vez SÍ se tomará en cuenta.
+Hacer un e-commerce con las siguientes características:
+
+Debe de tener signup
+Debe de tener login
+
+> Seccion Navbar 
+    >>> agregar avison de isgnup/login
+    >>> nombre de usuario>
+    >>> foto de perfil
+
+> Mostrar productos--->working on
+    >>> cartelera de productos por categoria -cards-- all and specific in the searcher
+    >>> searcher de productos
+
+> Mostrar detalles de producto
+    >>> create a SpecificCard
+        >>> boton para comprar
+        
+> seccion comprar carrito
+    >>> aviso de signup/login
+
+> Seccion de info de usuario
+    >>> subir foto de perfil de usuario para ponerlo como icono
+
+> Seccion de alta de productos para admin
+    >>> modific de productos para admin (al poner detalle de producto, crear un boton en modificar si es admin - una vista)
+    >>> aviso de signup/login
+
+Distingue entre ADMIN y CUSTOMER:
+
+Funcionalidad: CUSTOMER 
+
+SIN USUARIO / CON USUARIO
+Cuando entro al home puedo ver todos los productos.
+Siempre hay una navbar para hacer búsquedas por productos.
+Si le doy click a un producto puedo ver su detalle en su propio link.
+
+SIN USUARIO
+En el navbar de lado izquierdo me sugiere hacer signup o login
+>>aviso de signup/login
+
+La vista de login o signup son urls diferentes /login /signup
+Hay un botón comprar en la vista individual del detalle pero está desactivado y 
+te invita a registrarte o hacer login.
+>>aviso de signup/login al querer comprar
+
+CON USUARIO
+En el navbar se ve mi nombre de usuario y un icono de mi foto de perfil
+Si veo el detalle del item me aparece el botón de comprar.
+	
+Funcionalidad ADMIN: 
+
+Todas las funcioanlidades del customer mas: 
+El admin puede dar de alta nuevos productos.
+El admin puede modificar productos
+
+        */
