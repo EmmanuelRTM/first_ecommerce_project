@@ -10,7 +10,7 @@ function OneProduct(){
     const history = useHistory();
     const params= useParams();
     const [info,setInfo]=useState();
-    const URL_base="http://e2a2392e7030.ngrok.io/item/"
+    const URL_base="https://ecomerce-master.herokuapp.com/api/v1/item/"
     //const altLink="https://static.tvmaze.com/uploads/images/medium_portrait/237/592575.jpg";
 
     function getInformation(id_item){
@@ -68,13 +68,21 @@ function OneProduct(){
                     }
                         <p>
                         </p>
-                    <h4>{data.description}</h4>
+                    <h5>{data.description}</h5>
                         <p>
                         </p>
-                    <h4>Price: ${data.price}</h4>
+                    <h5>Category: {data.category}</h5>
                         <p>
                         </p>
-                        
+                    <h5>Brand: {data.brand}</h5>
+                        <p>
+                        </p>
+                    <h5>Price: ${data.price}</h5>
+                        <p>
+                        </p>
+                        {
+                            //Boton para agregar al carrito
+                        }
                 { /*<Link to={id_serie_url_season}>Episodes</Link>
                     <p> </p>
                     <Link to={id_serie_url_cast}>Cast</Link>

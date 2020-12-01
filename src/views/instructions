@@ -27,6 +27,7 @@ PATCH /api/v1/user/:idUser
             "email": STRING,
             "password": STRING,
             "birth_date": DATE,
+            año-mes-dia
             "gender": STRING posibles["F","M","X"]
         }
 
@@ -71,27 +72,35 @@ Debe de tener signup
 Debe de tener login
 
 > Seccion Navbar 
-    >>> agregar avison de isgnup/login
-    >>> nombre de usuario>
-    >>> foto de perfil
+    ...- >>> agregar avison de is signup/login
+    ok >>> nombre de usuario>
+    ...- >>> foto de perfil
 
 > Mostrar productos--->working on
     >>> cartelera de productos por categoria -cards-- all and specific in the searcher
     >>> searcher de productos
 
 > Mostrar detalles de producto
-    >>> create a SpecificCard
-        >>> boton para comprar
+    ok >>> create a SpecificCard
+    >>> boton para comprar
         
 > seccion comprar carrito
+    >>> tabla de compras
+        >>> botones counter para sumar o eliminar el producto
     >>> aviso de signup/login
 
 > Seccion de info de usuario
+    ok >>> Info de usuario 
     >>> subir foto de perfil de usuario para ponerlo como icono
 
 > Seccion de alta de productos para admin
     >>> modific de productos para admin (al poner detalle de producto, crear un boton en modificar si es admin - una vista)
     >>> aviso de signup/login
+
+Searcher ?
+Foto de perfil ? 
+Carrito de Compras ? 
+como se distingue entre admin y customer ?
 
 Distingue entre ADMIN y CUSTOMER:
 
