@@ -11,7 +11,6 @@ function Searcher({addSearch}){
         addSearch(search);
     }
     
-
     return (
 
         <div className="search-bar">

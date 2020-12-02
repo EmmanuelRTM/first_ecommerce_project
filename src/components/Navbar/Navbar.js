@@ -4,13 +4,20 @@ import { Link } from "react-router-dom";
 import "./Navbar.scss";
 import axios from 'axios';
 import Searcher from '../Searcher/Searcher';
+import PropTypes from 'prop-types';
 
-function Navbar() {
+function Navbar({addQuery}) {
    // const userID = payload().id;
     const [userInfo, setUserInfo] = useState();
+    const [searchedText,setSearchedText]=useState('');
+
+    const agregarBusqueda = (search) => {
+        setSearchedText(search);
+    }
 
     const obtainData = () =>{
-        //console.log(userInfoID)
+        //console.log(userInfoID) 
+        
         const token = window.localStorage.getItem('token')
         const config = {
             headers:{
@@ -21,8 +28,9 @@ function Navbar() {
         axios.get(`https://ecomerce-master.herokuapp.com/api/v1/user/me`,config)
             .then((response)=>{
                 if(response.status===200){
-                    console.log("Information of the user has been received", response.data.user)
+                    //console.log("Information of the user has been received", response.data.user)
                     setUserInfo(response.data.user);
+
                 }else{
                     console.log("please check your credentials",response)
                 }
@@ -34,7 +42,9 @@ function Navbar() {
 
     useEffect(()=>{
         obtainData();
-    },[obtainData()])
+        addQuery(searchedText)
+        //use searchedText to filter the product of obtainedData
+    },[obtainData(),searchedText])
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -68,7 +78,7 @@ function Navbar() {
                 </Link>
                 </li>
                 <li className="nav-item">
-                    <Searcher/>
+                    <Searcher addSearch={agregarBusqueda}/>
                 </li>
             </ul>
             ) : (
@@ -84,13 +94,17 @@ function Navbar() {
                 </Link>
                 </li>
                 <li className="nav-item">
-                    <Searcher/>
+                    <Searcher addSearch={agregarBusqueda}/>
                 </li>
             </ul>
             )}
         </div>
         </nav>
     );
+}
+
+Navbar.propTypes={
+    addQuery: PropTypes.func
 }
 
 export default Navbar;

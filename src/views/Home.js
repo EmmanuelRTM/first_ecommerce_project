@@ -6,6 +6,11 @@ import axios from 'axios';
 
 function Home(){
     const [items, setItems] = useState([]);
+    const [searchedText, setSearchedText]=useState('');
+
+    const agregarQuery = (query) => {
+        setSearchedText(query);
+    }
 
     const getItems = ()=>{
         axios.get("https://ecomerce-master.herokuapp.com/api/v1/item")
@@ -28,10 +33,12 @@ function Home(){
 
     return(
         <div>
-            <Navbar />
+            <Navbar addQuery={agregarQuery}/>
+            {//agregar la constante de setinformation del query,  props del navbar, y enviarselo a showproduct
+            }
             {//<h1 className="justify-content-center">¡Bienvenido!</h1>
             }
-            {items.length===0 ? <h3>Loading...</h3> : <ShowProduct lista={items} className="justify-content-center"/>}
+            {items.length===0 ? <h3>Loading...</h3> : <ShowProduct lista={items} elementoBusqueda={searchedText} className="justify-content-center"/>}
             
             {console.log(items)}
         </div>

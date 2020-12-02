@@ -1,18 +1,19 @@
 import React, {useState, useEffect}from 'react';
 import { useHistory } from 'react-router-dom';
 import {useParams} from 'react-router-dom';
-import axios from 'axios'
-import Navbar from '../components/Navbar'
+import axios from 'axios';
+import Navbar from '../components/Navbar';
+import PropTypes from 'prop-types';
 //import { Link } from 'react-router-dom';
 
-function OneProduct(){
+function OneProduct({addToCart}){
 
     const history = useHistory();
     const params= useParams();
     const [info,setInfo]=useState();
     const URL_base="https://ecomerce-master.herokuapp.com/api/v1/item/"
     //const altLink="https://static.tvmaze.com/uploads/images/medium_portrait/237/592575.jpg";
-
+    
     function getInformation(id_item){
             axios.get(URL_base+id_item)
                 .then((resp)=>{
@@ -87,6 +88,10 @@ function OneProduct(){
                     <p> </p>
                     <Link to={id_serie_url_cast}>Cast</Link>
                     <p><p/>*/}
+                    <button type="submit" onClick={()=>{
+                        addToCart(data);
+                        alert(`1 ${data.product_name} has been added to your cart`)
+                    }}>Add to Cart</button>
                 </div>
             )
     }
@@ -97,12 +102,17 @@ function OneProduct(){
             {
             info ===undefined ? <h1>loading...</h1> : RenderProduct(info)
             }
+
             <button type="button" onClick={()=>{
                 history.push('/')
             }}>Home
             </button>
         </div>
     )
+}
+
+OneProduct.propTypes={
+    addToCart: PropTypes.func
 }
 
 export default OneProduct;

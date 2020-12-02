@@ -77,8 +77,8 @@ Debe de tener login
     ...- >>> foto de perfil
 
 > Mostrar productos--->working on
-    >>> cartelera de productos por categoria -cards-- all and specific in the searcher
-    >>> searcher de productos
+    X Category to filter--->>> cartelera de productos por categoria -cards-- all and specific in the searcher
+    ok >>> searcher de productos
 
 > Mostrar detalles de producto
     ok >>> create a SpecificCard
@@ -97,10 +97,9 @@ Debe de tener login
     >>> modific de productos para admin (al poner detalle de producto, crear un boton en modificar si es admin - una vista)
     >>> aviso de signup/login
 
-Searcher ?
-Foto de perfil ? 
 Carrito de Compras ? 
-como se distingue entre admin y customer ?
+    >>> como se distingue entre admin y customer ?
+    >>> Foto de perfil ? 
 
 Distingue entre ADMIN y CUSTOMER:
 
