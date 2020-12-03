@@ -1,4 +1,4 @@
-import React , {useState,useEffect}from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 //import axios from 'axios';
@@ -11,16 +11,6 @@ function ShowProduct({lista, elementoBusqueda}){
             return el.product_name.toLowerCase().indexOf(wordToSearch.toLowerCase()) > -1;
         })
     }
-    const [addedToCart,setAddedToCart]=useState(...addedToCart)
-
-
-    const agregarAlCarrito=(item)=>{
-        setAddedToCart(...addedToCart, item)
-    }
-    useEffect(()=>{
-        console.log(addedToCart)
-    },[addedToCart])
-    
     //added to cart, does it work??
 
         const RenderProducts = () => {
@@ -40,7 +30,7 @@ function ShowProduct({lista, elementoBusqueda}){
                             
                                 <div className="col-md-3">
                                     <p></p>
-                                    <Link to ={"/product/"+data._id} addToCart={agregarAlCarrito}>{data.product_name}</Link>
+                                    <Link to ={"/product/"+data._id} >{data.product_name}</Link>
                                     {
                                         /*
                                             <p></p>
@@ -78,7 +68,7 @@ function ShowProduct({lista, elementoBusqueda}){
                             
                                 <div className="col-md-3">
                                     <p></p>
-                                    <Link to ={"/product/"+data._id} addToCart={agregarAlCarrito}>{data.product_name}</Link>
+                                    <Link to ={"/product/"+data._id} >{data.product_name}</Link>
                                     {
                                         /*
                                             <p></p>

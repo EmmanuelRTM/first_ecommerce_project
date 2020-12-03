@@ -24,7 +24,7 @@ function User(){
         axios.get(`https://ecomerce-master.herokuapp.com/api/v1/user/me`,config)
             .then((response)=>{
                 if(response.status===200){
-                    console.log("Information of the user has been received", response.data.user)
+                    //console.log("Information of the user has been received", response.data.user)
                     setUserInfo(response.data.user);
                 }else{
                     console.log("please check your credentials",response)

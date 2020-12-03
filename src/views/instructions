@@ -3,7 +3,6 @@
 DEV.F e-Commerce API
 
 Auth
-
 POST /api/v1/signup 
 POST /api/v1/login 
 
@@ -20,6 +19,8 @@ GET /api/v1/user
 GET /api/v1/user/me 
 GET /api/v1/user/:idUser 
 PATCH /api/v1/user/:idUser 
+
+
 
         {
             "first_name": STRING,
@@ -82,9 +83,9 @@ Debe de tener login
 
 > Mostrar detalles de producto
     ok >>> create a SpecificCard
-    >>> boton para comprar
+    >>> boton para comprar, solo dejar aplicar si eres customer /admin
         
-> seccion comprar carrito
+> seccion comprar carrito 
     >>> tabla de compras
         >>> botones counter para sumar o eliminar el producto
     >>> aviso de signup/login
@@ -101,18 +102,24 @@ Carrito de Compras ?
     >>> como se distingue entre admin y customer ?
     >>> Foto de perfil ? 
 
+
+como darse de alta como un ADMIN
+como modificar un producto o crear uno como ADMIN
+>>> poner boton de compras Only.  No es necesario crear shopping cart and shopping cart icon
+crear foto de perfil de usuario
+
 Distingue entre ADMIN y CUSTOMER:
 
 Funcionalidad: CUSTOMER 
 
 SIN USUARIO / CON USUARIO
-Cuando entro al home puedo ver todos los productos.
-Siempre hay una navbar para hacer búsquedas por productos.
-Si le doy click a un producto puedo ver su detalle en su propio link.
+Ok Cuando entro al home puedo ver todos los productos.
+Ok Siempre hay una navbar para hacer búsquedas por productos.
+Ok Si le doy click a un producto puedo ver su detalle en su propio link.
 
 SIN USUARIO
-En el navbar de lado izquierdo me sugiere hacer signup o login
->>aviso de signup/login
+Ok En el navbar de lado izquierdo me sugiere hacer signup o login
+
 
 La vista de login o signup son urls diferentes /login /signup
 Hay un botón comprar en la vista individual del detalle pero está desactivado y 

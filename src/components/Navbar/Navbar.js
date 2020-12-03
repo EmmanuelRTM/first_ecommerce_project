@@ -6,6 +6,7 @@ import axios from 'axios';
 import Searcher from '../Searcher/Searcher';
 import PropTypes from 'prop-types';
 
+
 function Navbar({addQuery}) {
    // const userID = payload().id;
     const [userInfo, setUserInfo] = useState();
@@ -30,19 +31,23 @@ function Navbar({addQuery}) {
                 if(response.status===200){
                     //console.log("Information of the user has been received", response.data.user)
                     setUserInfo(response.data.user);
-
+                    //response.data.user.role for detecting the role CUSTOMER/ADMIN
                 }else{
                     console.log("please check your credentials",response)
                 }
             })
             .catch(()=>{
-                console.log("Please check your configuration")
+                //alert("Please Signup/Login") 
+                //It's repeating the alert many times
+                console.log("Please check Signup/Login")
             })
     }
 
     useEffect(()=>{
         obtainData();
-        addQuery(searchedText)
+        if(searchedText.length>0){
+            addQuery(searchedText)
+        }
         //use searchedText to filter the product of obtainedData
     },[obtainData(),searchedText])
 
@@ -83,6 +88,9 @@ function Navbar({addQuery}) {
             </ul>
             ) : (
             <ul className="navbar-nav">
+                <li className="nav-item active white">
+                Please Login or Signup
+                </li>
                 <li className="nav-item active">
                 <Link className="nav-link" to="/login">
                     Login
