@@ -6,7 +6,6 @@ import axios from 'axios';
 import Searcher from '../Searcher/Searcher';
 import PropTypes from 'prop-types';
 
-
 function Navbar({addQuery}) {
    // const userID = payload().id;
     const [userInfo, setUserInfo] = useState();
@@ -73,7 +72,7 @@ function Navbar({addQuery}) {
         <div className="csollapse navbar-collapse" id="navbarNav">
             {//console.log(user)
             }
-            {userInfo ? (
+            {userInfo ? (userInfo.role=="ADMIN" ? (
             <ul className="navbar-nav">
                 <li className="nav-item active">
                 <Link className="nav-link" to="/user">
@@ -88,8 +87,34 @@ function Navbar({addQuery}) {
                 <li className="nav-item">
                     <Searcher addSearch={agregarBusqueda}/>
                 </li>
+                <li className="nav-item">
+                { <Link className="nav-link" to="/product/post">
+                    Create Product
+                </Link>}
+                
+                </li>
+                
             </ul>
-            ) : (
+            )
+            :
+            (
+                <ul className="navbar-nav">
+                <li className="nav-item active">
+                <Link className="nav-link" to="/user">
+                    Welcome {userInfo.first_name} !
+                </Link>
+                </li>
+                <li className="nav-item">
+                <Link className="nav-link" to="/logout">
+                    Logout
+                </Link>
+                </li>
+                <li className="nav-item">
+                    <Searcher addSearch={agregarBusqueda}/>
+                </li>
+            </ul>
+                ) )
+                : (
             <ul className="navbar-nav">
                 <li className="nav-link active">
                 Welcome!, Please Login or Signup
