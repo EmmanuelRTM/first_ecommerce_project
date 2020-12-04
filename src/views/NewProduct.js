@@ -8,7 +8,37 @@ import { useHistory} from 'react-router-dom';
 
 function NewProduct(){
     const history = useHistory();
-    const [exist,setExist]= useState();
+    const [userInfo, setUserInfo]=useState();
+
+    const obtainData = () =>{
+        //console.log(userInfoID) 
+        
+        const token = window.localStorage.getItem('token')
+        const config = {
+            headers:{
+                Authorization: `JWT ${token}` 
+            }
+        }
+        //console.log(config)
+        if(config){
+            axios.get(`https://ecomerce-master.herokuapp.com/api/v1/user/me`,config)
+            .then((response)=>{
+                if(response.status===200){
+                    //console.log("Information of the user has been received", response.data.user)
+                    setUserInfo(response.data.user);
+                    //response.data.user.role for detecting the role CUSTOMER/ADMIN
+                }else{
+                    console.log("please check your credentials",response)
+                }
+            })
+            .catch(()=>{
+                //alert("Please Signup/Login") 
+                //It's repeating the alert many times
+                console.log("Please check Signup/Login")
+            })
+        }
+        
+    }
 
     const sendData = (data) =>{
 
@@ -41,21 +71,17 @@ function NewProduct(){
 
     }
     useEffect(()=>{
-        let token = window.localStorage.getItem('token')
-        setExist(token)
-    },[])
+        obtainData()
+    },[obtainData()])
 
 
     const { inputs, handleInputChange, handleSubmit } = useForm(sendData,{});
     return (
         <form onSubmit={handleSubmit}>
             <Navbar />
-            {exist == undefined  ? 
+            {userInfo ? 
                 <h3>
                     Loading...
-                    {
-                        console.log(exist)
-                    }
                 </h3>
             :
             
