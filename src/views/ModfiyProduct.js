@@ -1,5 +1,5 @@
 import React ,{useState, useEffect} from 'react';
-import protect from '../utils/protect';
+//import protect from '../utils/protect';
 import Navbar from '../components/Navbar';
 import useForm from '../hooks/useForm';
 import axios from 'axios';
@@ -129,7 +129,7 @@ function ModifyProduct(){
                             <input type="text" 
                             value={inputs.image}
                             onChange={handleInputChange}
-                            className="form-control" 
+                            className="form-control padding-5" 
                             name="product_name" 
                             id="product_name"/>
                         </div>
@@ -140,7 +140,7 @@ function ModifyProduct(){
                             <label htmlFor="">Description</label>
                             <input 
                             type="text" 
-                            value={inputs.description.length <=0 ? productInfo.description : inputs.description}
+                            value={inputs.description ==undefined ? productInfo.description : inputs.description}
                             onChange={handleInputChange}
                             className="form-control" 
                             name="description" 
@@ -159,4 +159,4 @@ function ModifyProduct(){
     )
 }
 
-export default protect(ModifyProduct);
+export default ModifyProduct;

@@ -1,5 +1,5 @@
 import React, {useState, useEffect}from 'react';
-import { useHistory, useParams, Link} from 'react-router-dom';
+import { useHistory, useParams} from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
 //import PropTypes from 'prop-types';
@@ -125,13 +125,20 @@ function OneProduct(){
                         window.localStorage.getItem('token') ? alert(`1 ${data.product_name} has been bought`): alert(`Please login/signup to buy any product`)
                         
                     }}>Buy Now</button>
-                    
+                    <p>
+                    </p>
                     { userInfo =="ADMIN" ?
-                        <Link to={`/product/${data._id}/edit`}>
+                        <button type="submit" onClick={()=>{
+                            //detect if user is ADMIN OR CUSTOMER
+                            history.push(`/product/${data._id}/edit`)
+                        }}>Modify product</button>
+                        /*<Link to={`/product/${data._id}/edit`}>
                             Modify product
-                        </Link> : <p></p>
+                        </Link> */: <p></p>
                         //modify product
                     }
+                    <p></p>
+
                 </div>
             )
     }
