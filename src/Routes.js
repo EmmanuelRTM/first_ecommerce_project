@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch, Redirect  } from 'react-router-
 import Home from './views/Home';
 import Signup from './views/Signup';
 import Login from './views/Login';
-import Quote from './views/Quote';
 import User from './views/User';
 import OneProduct from './views/OneProduct';
 import ModifyProduct from './views/ModfiyProduct';
@@ -23,7 +22,6 @@ function Routes(){
                 <Route exact path="/"  component={Home} />
                 <Route exact path="/signup" component={Signup} />
                 <Route exact path="/login" component={Login} />
-                <Route exact path="/quote" component={Quote} />
                 <Route exact path="/logout" component={Logout} />
                 <Route exact path="/user" component={User} />
                 <Route exact path="/product/:idItem" component={OneProduct} />

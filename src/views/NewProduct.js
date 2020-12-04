@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import protect from '../utils/protect';
 import Navbar from '../components/Navbar';
 import useForm from '../hooks/useForm';
@@ -8,6 +8,7 @@ import { useHistory} from 'react-router-dom';
 
 function NewProduct(){
     const history = useHistory();
+    const [exist,setExist]= useState();
 
     const sendData = (data) =>{
 
@@ -39,17 +40,25 @@ function NewProduct(){
         
 
     }
+    useEffect(()=>{
+        let token = window.localStorage.getItem('token')
+        setExist(token)
+    },[])
 
 
     const { inputs, handleInputChange, handleSubmit } = useForm(sendData,{});
     return (
         <form onSubmit={handleSubmit}>
             <Navbar />
-            {window.localStorage.getItem('token') === undefined ? 
+            {exist == undefined  ? 
                 <h3>
                     Loading...
+                    {
+                        console.log(exist)
+                    }
                 </h3>
             :
+            
                 <div className="container mt-5">
                     <h3>Products current information</h3>
                 <div className="row justify-content-center">
