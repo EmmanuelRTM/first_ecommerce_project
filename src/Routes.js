@@ -6,6 +6,7 @@ import Login from './views/Login';
 import Quote from './views/Quote';
 import User from './views/User';
 import OneProduct from './views/OneProduct';
+import ModifyProduct from './views/ModfiyProduct';
 //import ShowProduct from './components/ShowProduct';
 
 const Logout = () =>{
@@ -25,7 +26,7 @@ function Routes(){
                 <Route exact path="/logout" component={Logout} />
                 <Route exact path="/user" component={User} />
                 <Route exact path="/product/:idItem" component={OneProduct} />
-                
+                <Route exact path="/product/:idItem/edit" component={ModifyProduct} />
                     {//Route exact path="/product/:idItem" component={ShowProduct}
                     }
             </Switch>

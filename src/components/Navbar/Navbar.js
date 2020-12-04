@@ -26,7 +26,8 @@ function Navbar({addQuery}) {
             }
         }
         //console.log(config)
-        axios.get(`https://ecomerce-master.herokuapp.com/api/v1/user/me`,config)
+        if(config){
+            axios.get(`https://ecomerce-master.herokuapp.com/api/v1/user/me`,config)
             .then((response)=>{
                 if(response.status===200){
                     //console.log("Information of the user has been received", response.data.user)
@@ -41,6 +42,8 @@ function Navbar({addQuery}) {
                 //It's repeating the alert many times
                 console.log("Please check Signup/Login")
             })
+        }
+        
     }
 
     useEffect(()=>{
@@ -88,10 +91,10 @@ function Navbar({addQuery}) {
             </ul>
             ) : (
             <ul className="navbar-nav">
-                <li className="nav-item active white">
-                Please Login or Signup
+                <li className="nav-link active">
+                Welcome!, Please Login or Signup
                 </li>
-                <li className="nav-item active">
+                <li className="nav-item ">
                 <Link className="nav-link" to="/login">
                     Login
                 </Link>
