@@ -37,7 +37,6 @@ function ModifyProduct(){
                     Authorization: `JWT ${token}` 
                 }
             }
-
             //podria usar axios dos veces creo yo
 
             axios.patch(`https://ecomerce-master.herokuapp.com/api/v1/item/${params.idItem}`,data,config)
@@ -55,8 +54,6 @@ function ModifyProduct(){
                 .catch((error) =>{
                     alert(error.response.data.message);
                 })
-        
-
     }
 
     useEffect(()=>{
