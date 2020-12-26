@@ -2,18 +2,19 @@ import React, {useState, useEffect}from 'react';
 import { useHistory, useParams} from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
+import {useProductContext} from '../hooks/ShoppingContext';
 //import PropTypes from 'prop-types';
 //import { Link } from 'react-router-dom';
 
 function OneProduct(){
-
+    const context = useProductContext();
+    const [contador, setContador]=useState(0);
     const history = useHistory();
     const params= useParams();
     const [info,setInfo]=useState();
     const [userInfo, setUserInfo] = useState();
-    const URL_base="https://ecomerce-master.herokuapp.com/api/v1/item/"
-    //const altLink="https://static.tvmaze.com/uploads/images/medium_portrait/237/592575.jpg";
-    
+    const URL_base="https://ecomerce-master.herokuapp.com/api/v1/item/";
+    //const altLink="https://static.tvmaze.com/uploads/images/medium_portrait/237/592575.jpg"
 
     function getInformation(id_item){
             axios.get(URL_base+id_item)
@@ -34,9 +35,17 @@ function OneProduct(){
                     return err;
                 });
     }
+
+    const sendData =(counter, data)=>{
+        alert(`Has añadido ${counter} item(s) del producto "${data.product_name}"`);
+        const no_ordenes={quantity:counter}
+        data = {...data, ...no_ordenes}
+        context.list.push(data)
+        //context.setSelectedProduct(data);
+    }
+
     const obtainData = () =>{
-        //console.log(userInfoID) 
-        
+        //console.log(userInfoID)
         const token = window.localStorage.getItem('token')
         const config = {
             headers:{
@@ -85,12 +94,13 @@ function OneProduct(){
     }
 
     const RenderProduct = (data) => {
-            
+        
         /*const id_serie_url_season="/serie/"+data.id+"/seasons";
         const id_serie_url_cast="/serie/"+data.id+"/cast"*/
-            
             return(
-                
+            <div className="container mt-5">
+                <div className="row justify-content-center">
+                    
                 <div key={data._id} className="located-Serie">
                     {console.log(data)}
                     <h3> {data.product_name}</h3>
@@ -120,11 +130,18 @@ function OneProduct(){
                     <p> </p>
                     <Link to={id_serie_url_cast}>Cast</Link>
                     <p><p/>*/}
+
+                    <button onClick={ ( ) => { setContador(contador+1) }} > + </button>
+                        <p>{contador}</p>
+                    <button onClick={ ( ) => { setContador(contador-1) } }> - </button>
+
                     <button type="submit" onClick={()=>{
                         //detect if user is ADMIN OR CUSTOMER
-                        window.localStorage.getItem('token') ? alert(`1 ${data.product_name} has been bought`): alert(`Please login/signup to buy any product`)
+                        window.localStorage.getItem('token') ? sendData(contador, data): alert(`Please login/signup to buy any product`)
                         
                     }}>Buy Now</button>
+
+                    
                     <p>
                     </p>
                     { userInfo =="ADMIN" ?
@@ -140,6 +157,8 @@ function OneProduct(){
                     <p></p>
 
                 </div>
+            </div>
+            </div>
             )
     }
 

@@ -42,7 +42,6 @@ function Navbar({addQuery}) {
                 console.log("Please check Signup/Login")
             })
         }
-        
     }
 
     useEffect(()=>{
@@ -88,6 +87,11 @@ function Navbar({addQuery}) {
                     <Searcher addSearch={agregarBusqueda}/>
                 </li>
                 <li className="nav-item">
+                <Link className="nav-link" to="/cart">
+                    Cart
+                </Link>
+                </li>
+                <li className="nav-item">
                 { <Link className="nav-link" to="/product/post">
                     Create Product
                 </Link>}
@@ -111,6 +115,11 @@ function Navbar({addQuery}) {
                 </li>
                 <li className="nav-item">
                     <Searcher addSearch={agregarBusqueda}/>
+                </li>
+                <li className="nav-item">
+                <Link className="nav-link" to="/cart">
+                    Cart
+                </Link>
                 </li>
             </ul>
                 ) )

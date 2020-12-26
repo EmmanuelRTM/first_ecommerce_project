@@ -50,6 +50,7 @@ function ShowProduct({lista, elementoBusqueda}){
                                     </div>
                                     <p className="justify-content-left">Price: ${data.price}</p>
                                     <p></p>
+                                    
                                 </div>
                             
                         </div>
@@ -88,6 +89,7 @@ function ShowProduct({lista, elementoBusqueda}){
                                     </div>
                                     <p className="justify-content-left">Price: ${data.price}</p>
                                     <p></p>
+                                    
                                 </div>
                             
                         </div>

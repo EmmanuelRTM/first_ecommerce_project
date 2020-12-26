@@ -7,6 +7,7 @@ import User from './views/User';
 import OneProduct from './views/OneProduct';
 import ModifyProduct from './views/ModfiyProduct';
 import NewProduct from './views/NewProduct';
+import Cart from './components/Cart';
 //import ShowProduct from './components/ShowProduct';
 
 const Logout = () =>{
@@ -27,6 +28,7 @@ function Routes(){
                 <Route exact path="/product/:idItem" component={OneProduct} />
                 <Route exact path="/product/:idItem/edit" component={ModifyProduct} />
                 <Route exact path="/product/post" component={NewProduct} />
+                <Route exact path="/cart" component={Cart} />
                     {//Route exact path="/product/:idItem" component={ShowProduct}
                     }
             </Switch>
