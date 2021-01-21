@@ -1,16 +1,12 @@
-import React , { useState}from 'react';
-//import axios from 'axios';
-//import canciones from './listCanciones.json';
-//creacion del contexto vacio
+import React , { useState} from 'react';
 
 const ProductContext=React.createContext();
 //se encesita el proveedor de datos y el consumido de datos
 //creacion del proveedor del contexto
+
 function ProductProvider(props){
 
-    //const [selectedProduct, setSelectedProduct]= useState({});
     const [list, setList]=useState([]);
-
     /* useEffect(() => {
         axios.get();
         setTimeout(()=>{
@@ -20,15 +16,15 @@ function ProductProvider(props){
     
 
     const deleteProduct = (name) => {
-        const newList = list.filter((product) => product.product_name !== name )
-        setList(newList) //se pone la nueva lista con el titulo borrado
-        //setSelectedProduct({}) //se quita la cancion al resetear la seleccion
+       // const newList = list.filter((product) => product.product_name !== name )
+       //sin saber porque no me lo detecta como lista aun... name debe ser usado como entrada de deletepriduct
+        console.log(name, ' its going to be deleted'); 
+        setList() //se pone la nueva lista con el titulo 
     }
     
     const value = {
         list,
-        //selectedProduct,
-        //setSelectedProduct,
+        setList,
         deleteProduct
     }
     return (
@@ -42,4 +38,4 @@ const useProductContext= ()=>{
     return context
 }
 
-export  {ProductProvider,useProductContext};
+export {ProductProvider,useProductContext};

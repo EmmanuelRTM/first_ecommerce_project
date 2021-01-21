@@ -8,10 +8,13 @@ import 'bootstrap/scss/bootstrap.scss';
 //import App from './App';
 import Routes from './Routes'
 import reportWebVitals from './reportWebVitals';
+import {ProductProvider} from './hooks/ShoppingContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Routes />
+    <ProductProvider>
+      <Routes />
+    </ProductProvider>
   </React.StrictMode>,
   document.getElementById('root')
   

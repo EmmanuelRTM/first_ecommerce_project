@@ -33,14 +33,22 @@ function OneProduct(){
                 }).catch((err)=>{
                     console.log(err)
                     return err;
-                });
+        });
     }
 
     const sendData =(counter, data)=>{
         alert(`Has añadido ${counter} item(s) del producto "${data.product_name}"`);
-        const no_ordenes={quantity:counter}
-        data = {...data, ...no_ordenes}
-        context.list.push(data)
+        data = {...data, quantity:counter}
+        //context.list.push(data)
+        //No sra setList???
+
+        //graba la primera iteracion pero nola segunda vez
+        if(context.setList===undefined){
+            context.setList(...context.list, data)
+        }else{
+            context.setList(...context.list, data)
+        }
+        
         //context.setSelectedProduct(data);
     }
 
@@ -77,8 +85,6 @@ function OneProduct(){
         console.log('Se ejecuto useEffect');
         getInformation(params.idItem);
         obtainData();
-
-
     }, [params.idItem]);
 
     const Image_Serie= (obj)=>{
