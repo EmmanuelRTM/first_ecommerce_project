@@ -7,7 +7,7 @@ function Cart(){
 //componente eitnermedio
     const cliclEnBorrar = (product_name) =>{
         //alert('se debe de borrar el titulo'+ context.selectedProduct.title)
-        //context.deleteProduct(product_name)
+        context.deleteProduct(product_name);
 
         console.log(`Se borrara tu producto ${product_name}`)
     }
@@ -16,15 +16,15 @@ function Cart(){
         
         const showProducts = (product)=>{
             //console.log(product)
-            const e=product.list;
+            //const e=product.list;
             console.log(product.list)
             return(
                 
-                    //product.map((e,i)=>{   
+                    product.list.map((e,i)=>{   
                         //Hay que ver como capturar el producto y como se va a recibir para llamar con context
-                        //return (
+                        return (
 
-                            <tr key={product.list._id} className="located-Product">
+                            <tr key={i} className="located-Product">
                                 <td>{e.product_name}</td>
                                 <td>{e.price}</td>
                                 <td>{e.quantity}</td>
@@ -33,13 +33,13 @@ function Cart(){
                                     e.price * e.quantity
                                 }</td>
                                 <td>
-                                    <button onClick={cliclEnBorrar(e.product_name)}>Eliminar</button>
+                                    <button onClick={()=>{cliclEnBorrar(e.product_name)}}>Eliminar</button>
                                 </td>
                             </tr>
 
-                       // )
-                    //}
-                    //)
+                        )
+                    }
+                    )
             )
         }
         const newHeaderofRow=()=>{
@@ -65,13 +65,14 @@ function Cart(){
                                 {showProducts(data)}
                         </tbody>
                     </table>
-                    <button onClick={ComprarAhora()}>Comprar</button>
+                    <button onClick={()=>{ComprarAhora()}}>Comprar</button>
                 </div>
             )
     }
 
 const ComprarAhora = ()=>{
-    console.log("Enhorabunea, transacción exitosa, espere 3 días en que llegue su(s) producto(s)")
+    alert("Enhorabunea, transacción exitosa, espere 3 días en que llegue su(s) producto(s)")
+    //console.log("Enhorabunea, transacción exitosa, espere 3 días en que llegue su(s) producto(s)")
 }
 
     return (

@@ -44,9 +44,11 @@ function OneProduct(){
 
         //graba la primera iteracion pero nola segunda vez
         if(context.setList===undefined){
-            context.setList(...context.list, data)
+            context.setList([])
+            context.setList([data])
         }else{
-            context.setList(...context.list, data)
+            console.log(context.list)
+            context.setList([data])
         }
         
         //context.setSelectedProduct(data);

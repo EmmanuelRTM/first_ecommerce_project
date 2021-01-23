@@ -16,10 +16,12 @@ function ProductProvider(props){
     
 
     const deleteProduct = (name) => {
-       // const newList = list.filter((product) => product.product_name !== name )
+        console.log(list)
+        const newList = list.filter((product) => product.product_name !== name )
        //sin saber porque no me lo detecta como lista aun... name debe ser usado como entrada de deletepriduct
+        setList([newList]);
         console.log(name, ' its going to be deleted'); 
-        setList() //se pone la nueva lista con el titulo 
+        //setList() //se pone la nueva lista con el titulo 
     }
     
     const value = {
