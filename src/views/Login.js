@@ -40,20 +40,24 @@ function Login(){
                                 className="form-control"
                                 value={inputs.email}
                                 onChange={handleInputChange}
+                                id="user"
                             />
                         </div>
                     </div>
                     <div className="col-md-10">
                         <div className="form-group">
                             <label htmlFor="">Password</label>
-                            <input type="password" name="password" 
+                            <input type="password" 
+                                name="password" 
                                 value={inputs.password}
                                 onChange={handleInputChange}
-                                className="form-control"/>
+                                className="form-control"
+                                id="password"/>
+                                
                         </div>
                     </div>
                     <div className="col-md-10 text-center">
-                        <button type="submit" className="btn btn-dark" >Enviar</button>
+                        <button type="submit" className="btn btn-dark" id="onLogin">Enviar</button>
                     </div>
                 </div>
             </div>

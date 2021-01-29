@@ -19,11 +19,9 @@ function Cart(){
             //const e=product.list;
             console.log(product.list)
             return(
-                
                     product.list.map((e,i)=>{   
                         //Hay que ver como capturar el producto y como se va a recibir para llamar con context
                         return (
-
                             <tr key={i} className="located-Product">
                                 <td>{e.product_name}</td>
                                 <td>{e.price}</td>
@@ -36,7 +34,6 @@ function Cart(){
                                     <button onClick={()=>{cliclEnBorrar(e.product_name)}}>Eliminar</button>
                                 </td>
                             </tr>
-
                         )
                     }
                     )

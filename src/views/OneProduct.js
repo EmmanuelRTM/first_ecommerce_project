@@ -48,7 +48,7 @@ function OneProduct(){
             context.setList([data])
         }else{
             console.log(context.list)
-            context.setList([data])
+            context.setList([...context.list, data])
         }
         
         //context.setSelectedProduct(data);
