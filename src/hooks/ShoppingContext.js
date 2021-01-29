@@ -13,6 +13,7 @@ function ProductProvider(props){
             setList(canciones)
         },2000)
     },[])*/
+    
 
     const deleteProduct = (name) => {
         console.log(list)
