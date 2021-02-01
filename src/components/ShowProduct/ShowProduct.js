@@ -102,7 +102,7 @@ function ShowProduct({lista, elementoBusqueda}){
     return (
         <div >
             
-                {lista ? <RenderProducts className="row justify-content-center"/>: <p className="row justify-content-center"> Loading...</p>}
+                {lista ? <RenderProducts className="row justify-content-center"/>: <p className="row justify-content-center" data-testid="loadingText"> Loading...</p>}
             
         </div>
     )
